@@ -1,11 +1,10 @@
-import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import SocialLogin from "../../Component/SocialLogin/SocialLogin";
+import useAuth from "../../Hooks/useAuth";
 
 const SignUp = () => {
   const axiosPublic = useAxiosPublic();
@@ -16,7 +15,7 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate()
 
   const onSubmit = (data) => {
@@ -161,7 +160,7 @@ const SignUp = () => {
             </form>
             <p className="px-6">
               <small>
-                Already have an account? <Link to="/login">Please Login</Link>
+                Already have an account? <Link to="/signin">Please Login</Link>
               </small>
             </p>
             <SocialLogin></SocialLogin>
