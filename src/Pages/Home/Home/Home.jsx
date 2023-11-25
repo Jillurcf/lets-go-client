@@ -1,5 +1,6 @@
-import Sectiontitle from "../../../Component/SectionTitle/Sectiontitle";
+
 import Banner from "../Banner/Banner";
+import PopularContest from "../PopularContest/PopularContest";
 
 
 const Home = () => {
@@ -7,7 +8,7 @@ const Home = () => {
         <div>
             
             <Banner></Banner>
-            <Sectiontitle heading="Popular Contest"></Sectiontitle>
+          <PopularContest></PopularContest>
         </div>
     );
 };

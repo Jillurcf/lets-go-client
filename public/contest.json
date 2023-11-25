@@ -1,0 +1,123 @@
+[
+    {
+      "contestName": "Unique Business Idea",
+      "image": "https://i.ibb.co/NSkKhTv/unique-Business.jpg",
+      "description": "Join the coding extravaganza and showcase your skills!",
+      "price": 10.99,
+      "prizeMoney": 5,
+      "instruction": "Write an innovative business Idea",
+      "tags": "Business Contest",
+      "participants": 0
+    },
+    {
+      "contestName": "Corona prevention Idea",
+      "image": "https://i.ibb.co/yh4TR8Q/corona-Prevention.jpg",
+      "description": "Unleash your artistic talents and create masterpieces!",
+      "price": 8.99,
+      "prizeMoney": 3,
+      "instruction": "Submit your best idea",
+      "tags": "Medical Contest",
+      "participants": 0
+    },
+    {
+      "contestName": "Techical Article",
+      "image": "https://i.ibb.co/F6mwzzb/technical-Article.jpg",
+      "description": "Test your knowledge in a article!",
+      "price": 5.99,
+      "prizeMoney": 10,
+      "instruction": "Answer a series of challenging questions across various categories.",
+      "tags": "Article Writing",
+      "participants": 0
+    },
+    {
+      "contestName": "Talent Building Game",
+      "image": "https://i.ibb.co/sHFTgPS/talent-Game.jpg",
+      "description": "Join the coding extravaganza and showcase your skills!",
+      "price": 10.99,
+      "prizeMoney": 5,
+      "instruction": "Write an innovative algorithm to solve a given problem.",
+      "tags": "Gaming",
+      "participants": 0
+    },  
+    {
+      "contestName": "It Business Idea",
+      "image": "https://i.ibb.co/QdR8KBL/it-Business.jpg",
+      "description": "Join the coding extravaganza and showcase your skills!",
+      "price": 10.99,
+      "prizeMoney": 5,
+      "instruction": "Write an innovative IT business Idea",
+      "tags": "Business Contest",
+      "participants": 0
+    },
+    {
+      "contestName": "Aids Prevention Idea",
+      "image": "https://i.ibb.co/d5qsTSx/aids-Prevention.jpg",
+      "description": "Unleash your artistic talents and create masterpieces!",
+      "price": 8.99,
+      "prizeMoney": 3,
+      "instruction": "Submit your best idea",
+      "tags": "Medical Contest",
+      "participants": 0
+    },
+    {
+      "contestName": "Article for web content",
+      "image": "https://i.ibb.co/ngrmJhJ/web-Content.jpg",
+      "description": "Test your knowledge in a article!",
+      "price": 5.99,
+      "prizeMoney": 10,
+      "instruction": "Answer a series of challenging questions across various categories.",
+      "tags": "Article Writing",
+      "participants": 0
+    },
+    {
+      "contestName": "Game for Math and algorithm",
+      "image": "https://i.ibb.co/R93t1Ky/mathGame.jpg",
+      "description": "Join the coding extravaganza and showcase your skills!",
+      "price": 10.99,
+      "prizeMoney": 5,
+      "instruction": "Write an innovative algorithm to solve a given problem.",
+      "tags": "Gaming",
+      "participants": 0
+    },  
+    {
+      "contestName": "Healthy food serving",
+      "image": "https://i.ibb.co/yXDCG4g/healthy-Food.jpg",
+      "description": "Join the coding extravaganza and showcase your skills!",
+      "price": 10.99,
+      "prizeMoney": 5,
+      "instruction": "Write an innovative IT business Idea",
+      "tags": "Business Contest",
+      "participants": 0
+      
+    },
+    {
+      "contestName": "Metal health imporvement",
+      "image": "https://i.ibb.co/fHgT889/Mental-Helth.jpg",
+      "description": "Unleash your artistic talents and create masterpieces!",
+      "price": 8.99,
+      "prizeMoney": 3,
+      "instruction": "Submit your best idea",
+      "tags": "Medical Contest",
+      "participants": 0
+    },
+    {
+      "contestName": "Article for save nature",
+      "image": "https://i.ibb.co/M2ZqChR/save-Nature.jpg",
+      "description": "Test your knowledge in a article!",
+      "price": 5.99,
+      "prizeMoney": 10,
+      "instruction": "Answer a series of challenging questions across various categories.",
+      "tags": "Article Writing",
+      "participants": 0
+    },
+    {
+      "contestName": "Game for Pre School Child",
+      "image": "https://i.ibb.co/0hVwL2p/pre-School-Game.jpg",
+      "description": "Join the coding extravaganza and showcase your skills!",
+      "price": 10.99,
+      "prizeMoney": 5,
+      "instruction": "Write an innovative algorithm to solve a given problem.",
+      "tags": "Gaming",
+      "participants": 0
+    }
+  ]
