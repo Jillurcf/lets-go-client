@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import logo from '../../../assets/Images/a12logo.png'
 
 const NavBar = () => {
-  const { user, loggedOut } = useAuth();
+  const { user, logOut } = useAuth();
   const navLinks = (
     <>
       <li>
@@ -53,7 +53,7 @@ const NavBar = () => {
   );
 
   const handleLogOut = () => {
-    loggedOut()
+    logOut()
       .then((result) => console.log(result))
       .catch((error) => console.log(error));
   };
