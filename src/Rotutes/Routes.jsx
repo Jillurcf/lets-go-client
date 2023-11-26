@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import SeeDetails from "../Pages/SeeDetails/SeeDetails";
+import AllContestPage from "../Pages/AllContestPage/AllContestPage";
 
 
 export const router = createBrowserRouter([
@@ -35,7 +36,12 @@ export const router = createBrowserRouter([
       },
       {
         path: 'seeDetail/:id',
-        element: <SeeDetails></SeeDetails>
+        element: <SeeDetails></SeeDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/Contests/${params.id}`)
+      },
+      {
+        path: 'allContest',
+        element: <AllContestPage></AllContestPage>
       }
   // //     {
   // //       path: "secret",

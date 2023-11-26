@@ -1,9 +1,10 @@
+import { useState } from "react";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import { useState } from "react";
 
-const PopularContestCard = ({contest}) => {
+
+const AllContestCard = ({contest}) => {
     const {_id, image, contestName, tags, description, participants} = contest;
     const axiosPublic = useAxiosPublic()
     const [presentCount, setPresentCount] = useState(0)
@@ -12,20 +13,20 @@ const PopularContestCard = ({contest}) => {
         const handleCount = (id)=>{      
             const updateCount = participants + 1;
         setPresentCount(updateCount)
-       axiosPublic.put(`/Contests/${id}`, {participants: updateCount}
+       axiosPublic.put(`/Contests/update/${id}`, {participants: updateCount}
         )
         .then(res=> {
           console.log(res.data);
         })
 
-        axiosPublic.get(`/Contests/${id}`)
+       axiosPublic.get(`/Contests/${id}`)
         .then(res=> {
           console.log(res.data);
         })
     }
-  return (
-    <div>
-      <div className="card card-side bg-purple-200 shadow-xl">
+    return (
+        <div>
+             <div className="card card-side bg-purple-200 shadow-xl">
         <figure className="md:h-[300px] md:w-[300px] overflow-hidden object-cover">
           <img className="h-[300px]"
             src={image}
@@ -43,20 +44,20 @@ const PopularContestCard = ({contest}) => {
        <p className="text-white">{participants}</p>
        </div>
         </div>
-        {/* <p> */}
-        {
-            description.length > 100 ? <p className="lg:block hidden text-purple-300">{description.slice(0,100)}<Link className="text-yellow-400 underline">  Read more..</Link></p> : <p className="lg:block hidden text-purple-300">{description}</p>
-          }
-        {/* </p> */}
+    
+       
+          <p className="lg:block hidden text-purple-300">{description}</p>
+         
+       
           <div className="">
             <button onClick={()=>handleCount(_id)} className="btn btn-outline text-purple-200"><Link to={`/seeDetail/${_id}`}>See Details</Link></button>
             
           </div>
           </div>
         </div>
-      </div>
-    </div>
-  );
+      </div> 
+        </div>
+    );
 };
 
-export default PopularContestCard;
+export default AllContestCard;

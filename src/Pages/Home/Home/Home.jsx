@@ -1,5 +1,6 @@
 
 import Banner from "../Banner/Banner";
+import CreatorSlider from "../CreatorSection/CreatorSlider";
 import PopularContest from "../PopularContest/PopularContest";
 import Winner from "../Winner/Winner";
 
@@ -11,6 +12,7 @@ const Home = () => {
             <Banner></Banner>
           <PopularContest></PopularContest>
           <Winner></Winner>
+          <CreatorSlider></CreatorSlider>
         </div>
     );
 };
