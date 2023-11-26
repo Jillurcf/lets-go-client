@@ -1,6 +1,7 @@
 
 import Banner from "../Banner/Banner";
 import PopularContest from "../PopularContest/PopularContest";
+import Winner from "../Winner/Winner";
 
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
             
             <Banner></Banner>
           <PopularContest></PopularContest>
+          <Winner></Winner>
         </div>
     );
 };

@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import SeeDetails from "../Pages/SeeDetails/SeeDetails";
 
 
 export const router = createBrowserRouter([
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
         path: "signUp",
         element: <SignUp></SignUp>
       },
+      {
+        path: 'seeDetail/:id',
+        element: <SeeDetails></SeeDetails>
+      }
   // //     {
   // //       path: "secret",
   // //       element: (
