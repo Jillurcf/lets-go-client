@@ -91,7 +91,7 @@ const SeeDetails = () => {
 
             <div>
               <button
-                onClick={() => setIsOpen(true)}
+                // onClick={() => setIsOpen(true)}
                 className=" mt-24 btn max-w-xs btn-outline btn-warning"
               >
                 Registration

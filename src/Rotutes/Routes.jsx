@@ -75,10 +75,10 @@ export const router = createBrowserRouter([
         path: "cart",
         element: <Cart></Cart>,
       },
-      // {
-      //   path: 'payment',
-      //   element: <Payment></Payment>
-      // },
+      {
+        path: 'payment',
+        element: <Payment></Payment>
+      },
       // {
       //   path: 'paymentHistory',
       //   element: <PaymentHistory></PaymentHistory>
