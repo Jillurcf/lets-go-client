@@ -1,21 +1,28 @@
-import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers,  FaUtensils, } from "react-icons/fa";
+import {
+ 
+  FaHome,
+  FaList,
+ 
+  FaTrophy,
+  FaUsers,
+ 
+} from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../Hooks/useCart";
 import useAdmin from "../Hooks/useAdmin";
 
-
 const Dashboard = () => {
-    const [cart] = useCart();
+  const [cart] = useCart();
 
-    // TODO: get isAdmin value form data base
-    const [isAdmin] = useAdmin()
+  // TODO: get isAdmin value form data base
+  const [isAdmin] = useAdmin();
 
-    return (
-        <div className="flex">
-            {/* dashboard sidebar */}
-           <div className=" w-64 min-h-screen bg-orange-400">
-            <ul className="menu p-4">
-             {
+  return (
+    <div className="flex">
+      {/* dashboard sidebar */}
+      <div className=" w-64 min-h-screen bg-purple-400">
+        <ul className="menu p-4">
+          {/* {
                 isAdmin ? <>
                    <li>                  
                     <NavLink to="/dashboard/adminHome">
@@ -50,25 +57,46 @@ const Dashboard = () => {
                 </> 
                 : 
                 <>
-                   <li>                  
-                    <NavLink to="/dashboard/userHome">
-                    <FaHome></FaHome>
-                    User Home
-                    </NavLink>
-                </li>
+                   
                 <li>                  
                     <NavLink to="/dashboard/history">
                    <FaCalendar></FaCalendar>
                  Not History
                     </NavLink>
-                </li>
-                <li>                  
-                    <NavLink to="/dashboard/cart">
-                    <FaShoppingCart></FaShoppingCart>
-                     My Cart ({cart.length})
-                    </NavLink>
-                </li>
-                <li>                  
+                </li> */}
+
+          <li>
+            <NavLink to="/dashboard/userHome">
+              <FaHome></FaHome>
+              User Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/userWinning">
+              <FaTrophy></FaTrophy>
+             My winning Contest Page
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/cart">
+              <FaList></FaList>
+              My Participated Contest, cart ({cart.length})
+            </NavLink>
+          </li>
+          <div className="divider">OR</div>
+          <li>
+            <NavLink to="/dashboard/userProfile">
+              <FaUsers></FaUsers>
+              My Profile
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/">
+              <FaHome></FaHome>
+              User Home
+            </NavLink>
+          </li>
+          {/* <li>                  
                     <NavLink to="/dashboard/review">
                    <FaAd></FaAd>
                   Ad a Review
@@ -83,7 +111,7 @@ const Dashboard = () => {
                 </>
              }
                 {/* Shared navLink */}
-                <div className="divider">OR</div>
+          {/* <div className="divider">OR</div>
                 <li>                  
                     <NavLink to="/">
                     <FaHome></FaHome>
@@ -101,15 +129,15 @@ const Dashboard = () => {
                  <FaEnvelope></FaEnvelope>
                  Contact
                     </NavLink>
-                </li>
-            </ul>
-            </div> 
-            {/* dashboard content */}
-            <div className="flex-1 p-8">
-                <Outlet></Outlet>
-            </div>
-        </div>
-    );
+                </li> */}
+        </ul>
+      </div>
+      {/* dashboard content */}
+      <div className="flex-1 p-8">
+        <Outlet></Outlet>
+      </div>
+    </div>
+  );
 };
 
 export default Dashboard;

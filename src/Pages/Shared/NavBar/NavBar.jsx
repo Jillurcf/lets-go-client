@@ -37,7 +37,7 @@ const NavBar = () => {
       </li>
       <li>
         <NavLink
-          to="/blog"
+          to="dashboard/cart"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
@@ -46,7 +46,7 @@ const NavBar = () => {
               : "text-purple-700 font-bold"
           }
         >
-          Blog
+          My Registration
         </NavLink>
       </li>
     </>
@@ -125,7 +125,7 @@ const NavBar = () => {
                   </li> */}
                          <li>
                 <button className="btn btn-sm btn-ghost">
-                  <Link to="/addFood"> Dashboard</Link>
+                  <Link to="/dashboard"> Dashboard</Link>
                 </button>
               </li>
               

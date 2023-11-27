@@ -16,7 +16,7 @@ const SignUp = () => {
   } = useForm();
 
   const { createUser, updateUserProfile } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     createUser(data.email, data.password).then((result) => {
@@ -24,26 +24,26 @@ const SignUp = () => {
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-        //  create user entry in the database
-        const userInfo ={
-          name: data.name,
-          email: data.email 
-        }
-        axiosPublic.post('/users', userInfo)
-        .then(res=> {
-          if(res.data.insertedId){
-            reset();
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "User creatd successfully",
-              showConfirmButton: false,
-              timer: 1500
-            });
-            navigate('/')
-          }
-        })
-          
+          //  create user entry in the database
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+            role: "guest",
+            status: "Verified",
+          };
+          axiosPublic.post("/Users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              reset();
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "User creatd successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            }
+          });
         })
         .catch((error) => console.log(error));
     });
@@ -52,7 +52,7 @@ const SignUp = () => {
   return (
     <>
       <Helmet>
-        <title>Bistro Boss | Sign Up</title>
+        <title>LetsGo | Sign Up</title>
       </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
@@ -170,6 +170,5 @@ const SignUp = () => {
     </>
   );
 };
-
 
 export default SignUp;

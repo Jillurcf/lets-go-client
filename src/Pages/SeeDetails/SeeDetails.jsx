@@ -3,17 +3,17 @@ import Sectiontitle from "../../Component/SectionTitle/Sectiontitle";
 import { useLoaderData } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Counter from "./Counter";
-import useAuth from "../../Hooks/useAuth";
-import BookingModal from "./BookingModal";
-// import './Counter.css'
+// import useAuth from "../../Hooks/useAuth";
+
+
 
 const SeeDetails = () => {
   const seeDetail = useLoaderData();
-  let [isOpen, setIsOpen] = useState(false);
-  const { user } = useAuth();
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  // let [isOpen, setIsOpen] = useState(false);
+  // const { user } = useAuth();
+  // const closeModal = () => {
+  //   setIsOpen(false);
+  // };
   const [timerDays, setTimerDays] = useState();
   const [timerHours, setTimerHours] = useState();
   const [timerMinutes, setTimerMinutes] = useState();
@@ -97,11 +97,7 @@ const SeeDetails = () => {
                 Registration
               </button>
             </div>
-            <BookingModal
-        closeModal={closeModal}
-        isOpen={isOpen}
-        // bookingInfo={bookingInfo}
-      ></BookingModal>
+        
 
           </div>
         </div>
