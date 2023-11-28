@@ -22,6 +22,7 @@ import ManageUsers from "../Pages/DashBoard/ManageUsers/ManageUsers";
 import AddContest from "../Pages/DashBoard/AddContest/AddContest";
 import CreatedContest from "../Pages/DashBoard/CreatedContest/CreatedContest";
 import UpdateContest from "../Pages/DashBoard/UpdateContest/UpdateContest";
+import UserProfile from "../Pages/DashBoard/UserProfile/UserProfile";
 
 
 
@@ -104,9 +105,7 @@ export const router = createBrowserRouter([
       {
         path: "addContest",
         element: (
-         <AddContest></AddContest>
-            
-          
+         <AddContest></AddContest>                     
         ),
       },
       {
@@ -128,6 +127,12 @@ export const router = createBrowserRouter([
           <AdminRoute>
             <ManageUsers></ManageUsers>
           </AdminRoute>
+        ),
+      },
+      {
+        path: "userProfile",
+        element: (    
+            <UserProfile></UserProfile>         
         ),
       },
     ],

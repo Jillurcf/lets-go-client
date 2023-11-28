@@ -9,7 +9,7 @@ const Dashboard = () => {
   const [cart] = useCart();
   const { user } = useAuth();
 
-  // TODO: get isAdmin value form data base
+ 
   const [isAdmin] = useAdmin();
   console.log(isAdmin);
 
@@ -104,7 +104,7 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/">
                   <FaHome></FaHome>
-                  User Home
+                  Home
                 </NavLink>
               </li>
             </>

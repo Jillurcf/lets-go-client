@@ -47,7 +47,7 @@ const ManageContests = () => {
   return (
     <div>
       <Sectiontitle
-        heading="Mange All Items"
+        heading="Mange Contest"
         subHeading="Hurry Up"
       ></Sectiontitle>
       <div>
@@ -83,7 +83,7 @@ const ManageContests = () => {
                   <td>{item.name}</td>
                   <td className="text-right">$ {item.price}</td>
                   <td>
-                    <Link to={`/dashboard/updateItem/${item._id}`}>
+                    <Link to={`/dashboard/UpdateContest/${item._id}`}>
                       <button className="btn btn-ghost btn-lg bg-orange-500">
                         <FaEdit className="text-white"></FaEdit>
                       </button>
