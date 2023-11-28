@@ -16,6 +16,7 @@ const CheckoutForm = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const [cart, refetch] = useCart();
+  console.log(cart);
   const navigate = useNavigate();
 
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
@@ -79,13 +80,13 @@ const CheckoutForm = () => {
           price: totalPrice,
           transactionId: paymentIntent.id,
           date: new Date(), // utc date convert. use moment js to
-          cartIds: cart.map((item) => item._id),
-          menuItemIds: cart.map((item) => item.menuId),
+          cartId: cart.map((item) => item._id),
+          contestIds: cart.map((item) => item.contestId),
           status: "pending",
         };
         const res = await axiosSecure.post("/payments", payment);
-        console.log("payment saved", res.data);
-        refetch();
+        refetch();       
+        console.log("payment saved", res.data);     
         if (res.data?.paymentResult?.insertedId) {
           Swal.fire({
             position: "top-end",
@@ -121,6 +122,7 @@ const CheckoutForm = () => {
         className="btn btn-primary my-4"
         type="submit"
         disabled={!stripe || !clientSecret}
+        // disabled={!stripe || !clientSecret}
       >
         Pay
       </button>
@@ -131,5 +133,6 @@ const CheckoutForm = () => {
     </form>
   );
 };
+
 
 export default CheckoutForm;

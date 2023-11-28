@@ -14,10 +14,14 @@ import Payment from "../Pages/DashBoard/Payment/Payment";
 import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
 import AdminRoute from "./AdminRoute";
-import ManageItems from "../Pages/DashBoard/ManageItems/ManageItems";
 import UpdateItem from "../Pages/DashBoard/UpdateItem/UpdateItem";
-import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
-import AddItems from "../Pages/DashBoard/AddItem/AddItems";
+import AllUsers from "../Pages/DashBoard/ManageUsers/ManageUsers";
+
+import ManageContests from "../Pages/DashBoard/ManageContests/ManageContests";
+import ManageUsers from "../Pages/DashBoard/ManageUsers/ManageUsers";
+import AddContest from "../Pages/DashBoard/AddContest/AddContest";
+import CreatedContest from "../Pages/DashBoard/CreatedContest/CreatedContest";
+
 
 
 export const router = createBrowserRouter([
@@ -79,31 +83,39 @@ export const router = createBrowserRouter([
         path: 'payment',
         element: <Payment></Payment>
       },
+      {
+        path: 'createdContest',
+        element: <CreatedContest></CreatedContest>,
+      },
+      {
+        path: 'updateContest',
+        element: <CreatedContest></CreatedContest>,
+      },
       // {
       //   path: 'paymentHistory',
       //   element: <PaymentHistory></PaymentHistory>
       // },
       // // admin only routes
-      // {
-      //   path: 'adminHome',
-      //   element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
-      // },
-      // {
-      //   path: "addItems",
-      //   element: (
-      //     <AdminRoute>
-      //       <AddItems></AddItems>
-      //     </AdminRoute>
-      //   ),
-      // },
-      // {
-      //   path: "manageItems",
-      //   element: (
-      //     <AdminRoute>
-      //       <ManageItems></ManageItems>
-      //     </AdminRoute>
-      //   ),
-      // },
+      {
+        path: 'adminHome',
+        element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
+      },
+      {
+        path: "addContest",
+        element: (
+         <AddContest></AddContest>
+            
+          
+        ),
+      },
+      {
+        path: "manageContests",
+        element: (
+          <AdminRoute>
+           <ManageContests></ManageContests>
+          </AdminRoute>
+        ),
+      },
       // {
       //   path: "updateItem/:id",
       //   element: 
@@ -112,14 +124,14 @@ export const router = createBrowserRouter([
       //     </AdminRoute>,
       //   loader: ({params})=> fetch(`https://bistro-boss-server-nine-lovat.vercel.app/menu/${params.id}`)
       // },
-      // {
-      //   path: "users",
-      //   element: (
-      //     <AdminRoute>
-      //       <AllUsers></AllUsers>
-      //     </AdminRoute>
-      //   ),
-      // },
+      {
+        path: "mangeUsers",
+        element: (
+          <AdminRoute>
+            <ManageUsers></ManageUsers>
+          </AdminRoute>
+        ),
+      },
     ],
   },
 ]);

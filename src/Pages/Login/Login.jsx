@@ -70,7 +70,7 @@ const Login = () => {
   <>
   <Helmet>
     <title>
-        Bistro Boss | Sign In
+        Lets Go | Sign In
     </title>
    </Helmet>
     <div className="hero min-h-screen bg-base-200">

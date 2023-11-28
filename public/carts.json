@@ -1,0 +1,40 @@
+
+[
+
+    {
+        "contestId": "642c155b2c4774f05c36eea4",
+        "contestName": "Corona prevention Idea",
+        "email": "guest@role.com",
+        "image": "https://i.ibb.co/yh4TR8Q/corona-Prevention.jpg",
+        "description": "Unleash your artistic talents and create masterpieces!",
+        "price": 8.99,
+        "prizeMoney": 3,
+        "instruction": "Submit your best idea",
+        "tags": "Medical Contest",
+        "participants": 0
+      },
+      {
+        "contestId": "642c155b2c4774f05c36eea5",
+        "contestName": "Techical Article",
+        "email": "guest@role.com",
+        "image": "https://i.ibb.co/F6mwzzb/technical-Article.jpg",
+        "description": "Test your knowledge in a article!",
+        "price": 5.99,
+        "prizeMoney": 10,
+        "instruction": "Answer a series of challenging questions across various categories.",
+        "tags": "Article Writing",
+        "participants": 0
+      },
+      {
+        "contestId": "642c155b2c4774f05c36eea6",
+        "contestName": "Talent Building Game",
+        "email": "guest@role.com",
+        "image": "https://i.ibb.co/sHFTgPS/talent-Game.jpg",
+        "description": "Join the coding extravaganza and showcase your skills!",
+        "price": 10.99,
+        "prizeMoney": 5,
+        "instruction": "Write an innovative algorithm to solve a given problem.",
+        "tags": "Gaming",
+        "participants": 0
+      }
+]

@@ -1,19 +1,25 @@
 import { FaPeopleGroup } from "react-icons/fa6";
 import Sectiontitle from "../../Component/SectionTitle/Sectiontitle";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Counter from "./Counter";
-// import useAuth from "../../Hooks/useAuth";
-
-
+import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const SeeDetails = () => {
   const seeDetail = useLoaderData();
+  const { user } = useAuth();
+  const navigate = useNavigate()
+  const location = useLocation()
+  const axiosPublic = useAxiosPublic()
   // let [isOpen, setIsOpen] = useState(false);
-  // const { user } = useAuth();
+
   // const closeModal = () => {
   //   setIsOpen(false);
   // };
+
+  console.log(seeDetail.contestName);
   const [timerDays, setTimerDays] = useState();
   const [timerHours, setTimerHours] = useState();
   const [timerMinutes, setTimerMinutes] = useState();
@@ -51,6 +57,49 @@ const SeeDetails = () => {
     startTimer();
   }, []);
   console.log(seeDetail);
+
+  const handleAddToCart = (contest) => {
+    if (user && user.email) {
+      // TODO:
+      console.log(user.email, contest);
+      const cartItem = {
+        menuId: contest._id,
+        email: user.email,
+        name: contest.contestName,
+        image: contest.image,
+        price: contest.price        
+      }
+      axiosPublic.post('/carts', cartItem)
+      .then(res=>{
+        console.log(res.data);
+        if(res.data){
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${contest.contestName} addedd to cart`,
+            showConfirmButton: false,
+            timer: 1500
+          });
+          navigate('/dashboard/cart')
+        }
+      })
+    } else {
+      Swal.fire({
+        title: "You are not Logged in",
+        text: "Please login for registration",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // send the user to the login page
+          navigate('/signin', {state:{from: location}})
+        }
+      });
+    }
+  };
   return (
     <div>
       <div className="mt-36">
@@ -91,14 +140,12 @@ const SeeDetails = () => {
 
             <div>
               <button
-                // onClick={() => setIsOpen(true)}
+                onClick={() => handleAddToCart(seeDetail)}
                 className=" mt-24 btn max-w-xs btn-outline btn-warning"
               >
                 Registration
               </button>
             </div>
-        
-
           </div>
         </div>
       </div>

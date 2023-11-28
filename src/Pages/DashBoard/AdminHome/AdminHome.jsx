@@ -46,22 +46,22 @@ const AdminHome = () => {
   // };
 
   // custotm shape for the pie chart
-//   const RADIAN = Math.PI / 180;
-//   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
-//     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-//     const x = cx + radius * Math.cos(-midAngle * RADIAN);
-//     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  
-//     return (
-//       <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-//         {`${(percent * 100).toFixed(0)}%`}
-//       </text>
-//     );
-//   };
+  //   const RADIAN = Math.PI / 180;
+  //   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
+  //     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  //     const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  //     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-// const pieChartData = chartData.map(data=> {
-//   return {name: data.category, value: data.revenue }
-// })
+  //     return (
+  //       <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+  //         {`${(percent * 100).toFixed(0)}%`}
+  //       </text>
+  //     );
+  //   };
+
+  // const pieChartData = chartData.map(data=> {
+  //   return {name: data.category, value: data.revenue }
+  // })
   return (
     <div>
       <h2 className="text-3xl">
@@ -92,7 +92,7 @@ const AdminHome = () => {
             <FaUsers className="text-3xl"></FaUsers>
             <FaBook className="text-3xl"></FaBook>
           </div>
-          <div className="stat-title">Menu Items</div>
+          <div className="stat-title">Contests</div>
           <div className="stat-value">{stats.menuItems}</div>
           <div className="stat-desc">↗︎ 400 (22%)</div>
         </div>
@@ -101,33 +101,38 @@ const AdminHome = () => {
           <div className="stat-figure text-secondary">
             <FaUnity className="text-3xl"></FaUnity>
           </div>
-          <div className="stat-title">Orders</div>
+          <div className="stat-title">Registration</div>
           <div className="stat-value">{stats.orders}</div>
           <div className="stat-desc">↘︎ 90 (14%)</div>
         </div>
       </div>
-      <div className="flex">
+      {/* <div className="flex">
         <div className="">
-        <BarChart
-      width={500}
-      height={300}
-      data={chartData}
-      margin={{
-        top: 20,
-        right: 30,
-        left: 20,
-        bottom: 5,
-      }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="category" />
-      <YAxis />
-      <Bar dataKey="quantity" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-        {chartData.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={colors[index % 6]} />
-        ))}
-      </Bar>
-    </BarChart>
+          <BarChart
+            width={500}
+            height={300}
+            data={chartData}
+            margin={{
+              top: 20,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="category" />
+            <YAxis />
+            <Bar
+              dataKey="quantity"
+              fill="#8884d8"
+              shape={<TriangleBar />}
+              label={{ position: "top" }}
+            >
+              {chartData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={colors[index % 6]} />
+              ))}
+            </Bar>
+          </BarChart>
         </div>
         <div className=""></div>
         <PieChart width={400} height={400}>
@@ -142,12 +147,15 @@ const AdminHome = () => {
             dataKey="value"
           >
             {pieChartData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
             ))}
           </Pie>
           <Legend></Legend>
         </PieChart>
-      </div>
+      </div> */}
     </div>
   );
 };

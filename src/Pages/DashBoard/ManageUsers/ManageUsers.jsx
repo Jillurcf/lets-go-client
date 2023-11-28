@@ -3,7 +3,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { FaTrashAlt, FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
 
-const AllUsers = () => {
+const ManageUsers = () => {
   const axiosSecure = useAxiosSecure();
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
@@ -108,4 +108,5 @@ const AllUsers = () => {
     </div>
   );
 };
-export default AllUsers;
+
+export default ManageUsers;

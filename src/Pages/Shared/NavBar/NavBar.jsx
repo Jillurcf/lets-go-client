@@ -1,10 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import { motion } from "framer-motion";
-import logo from '../../../assets/Images/a12logo.png'
+import logo from "../../../assets/Images/a12logo.png";
+import { FaCartShopping } from "react-icons/fa6";
+import useCart from "../../../Hooks/useCart";
+
 
 const NavBar = () => {
   const { user, logOut } = useAuth();
+  const [cart] = useCart()
   const navLinks = (
     <>
       <li>
@@ -38,15 +42,19 @@ const NavBar = () => {
       <li>
         <NavLink
           to="dashboard/cart"
-          className={({ isActive, isPending }) =>
-            isPending
-              ? "pending"
-              : isActive
-              ? "bg-purple-300 text-purple-950 font-bold"
-              : "text-purple-700 font-bold"
-          }
+          // className={({ isActive, isPending }) =>
+          //   isPending
+          //     ? "pending"
+          //     : isActive
+          //     ? "bg-purple-300 text-purple-950 font-bold"
+          //     : "text-purple-700 font-bold"
+          // }
         >
-          My Registration
+          {/* My Registration */}
+          <button className="btn">
+          <FaCartShopping></FaCartShopping>
+            <div className="badge badge-secondary">+{cart.length}</div>
+          </button>
         </NavLink>
       </li>
     </>
@@ -85,15 +93,14 @@ const NavBar = () => {
           </ul>
         </div>
         <img className="w-[15%] pl-4 hidden md:block" src={logo} alt="" />
-        <Link to='/' className="text-xl overflow-visible">
-
-        <motion.h1
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.8 }}
-              className="text-purple-950 md:text-4xl text-lg font-bold"
-            >
-          LETS GO
-            </motion.h1>
+        <Link to="/" className="text-xl overflow-visible">
+          <motion.h1
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.8 }}
+            className="text-purple-950 md:text-4xl text-lg font-bold"
+          >
+            LETS GO
+          </motion.h1>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -112,10 +119,10 @@ const NavBar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               {/* <h1 className="text-center text-blue-600 font-bold">User Profile</h1> */}
-              
+
               <li>
                 <button className="btn btn-sm btn-ghost">
-                 {user.displayName}
+                  {user.displayName}
                 </button>
               </li>
               {/* <li>
@@ -123,12 +130,12 @@ const NavBar = () => {
                     {user.email}
                     </button>
                   </li> */}
-                         <li>
+              <li>
                 <button className="btn btn-sm btn-ghost">
                   <Link to="/dashboard"> Dashboard</Link>
                 </button>
               </li>
-              
+
               <li>
                 <button
                   className="btn btn-sm btn-ghost mt-4"

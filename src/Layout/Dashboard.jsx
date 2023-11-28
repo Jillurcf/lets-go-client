@@ -27,13 +27,13 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/manage-users">
+                <NavLink to="/dashboard/mangeUsers">
                   <FaUsers></FaUsers>
                   Mange Users
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/manage-contest">
+                <NavLink to="/dashboard/manageContests">
                   <FaTrophy></FaTrophy>
                   Manage Contest
                 </NavLink>
@@ -69,7 +69,7 @@ const Dashboard = () => {
              }
               {
                 isAdmin == "creator" ? <li>
-                <NavLink to="/dashboard/userWinning">
+                <NavLink to="/dashboard/addContest">
                   <FaTrophy></FaTrophy>
                  Add Contest
                 </NavLink>
@@ -82,7 +82,7 @@ const Dashboard = () => {
               }
              {
               isAdmin == "creator" ?  <li>
-              <NavLink to="/dashboard/cart">
+              <NavLink to="/dashboard/createdContest">
                 <FaList></FaList>
                 My Created Contest
               </NavLink>
