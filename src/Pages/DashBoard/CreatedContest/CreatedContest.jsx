@@ -3,7 +3,6 @@ import Sectiontitle from "../../../Component/SectionTitle/Sectiontitle";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { Link, useParams,} from "react-router-dom";
-// import useContests from "../../../Hooks/UseContests";
 import useCratorContests from "../../../Hooks/useCreatrorContest";
 
 const CreatedContest = () => {
@@ -85,7 +84,7 @@ const CreatedContest = () => {
                   <td>{item.name}</td>
                   <td className="text-right">$ {item.price}</td>
                   <td>
-                    <Link to={`/dashboard/updateContest/${item._id}`}>
+                    <Link to={`/dashboard/UpdateContest/${item._id}`}>
                       <button className="btn btn-ghost btn-lg bg-orange-500">
                         <FaEdit className="text-white"></FaEdit>
                       </button>

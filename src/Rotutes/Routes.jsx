@@ -21,6 +21,7 @@ import ManageContests from "../Pages/DashBoard/ManageContests/ManageContests";
 import ManageUsers from "../Pages/DashBoard/ManageUsers/ManageUsers";
 import AddContest from "../Pages/DashBoard/AddContest/AddContest";
 import CreatedContest from "../Pages/DashBoard/CreatedContest/CreatedContest";
+import UpdateContest from "../Pages/DashBoard/UpdateContest/UpdateContest";
 
 
 
@@ -71,10 +72,10 @@ export const router = createBrowserRouter([
   
     children: [
       // normal users routes
-      // {
-      //   path: 'userHome',
-      //   element: <UserHome></UserHome>
-      // },
+      {
+        path: 'userHome',
+        element: <UserHome></UserHome>
+      },
       {
         path: "cart",
         element: <Cart></Cart>,
@@ -89,7 +90,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'updateContest',
-        element: <CreatedContest></CreatedContest>,
+        element: <UpdateContest></UpdateContest>
       },
       // {
       //   path: 'paymentHistory',
@@ -116,14 +117,11 @@ export const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
-      // {
-      //   path: "updateItem/:id",
-      //   element: 
-      //     <AdminRoute>
-      //       <UpdateItem></UpdateItem>
-      //     </AdminRoute>,
-      //   loader: ({params})=> fetch(`https://bistro-boss-server-nine-lovat.vercel.app/menu/${params.id}`)
-      // },
+      {
+        path: "UpdateContest/:id",
+        element: <UpdateContest></UpdateContest>,
+       loader: ({params}) => fetch(`http://localhost:5000/Contests/${params.id}`)
+      },
       {
         path: "mangeUsers",
         element: (

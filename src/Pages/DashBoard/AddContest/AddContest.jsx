@@ -69,7 +69,7 @@ const AddContest = () => {
             </label>
             <input
               type="text"
-              placeholder="Receipe name"
+              placeholder="Contest name"
               {...register("name", { required: true })}
               className="input input-bordered w-full"
             />

@@ -12,7 +12,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 
 const UpdateItem = () => { 
-  const {name, category, recipe, price, _id} = useLoaderData();
+  // const {name, category, recipe, price, _id} = useLoaderData();
   const { register, handleSubmit, reset } = useForm();
 
   const axiosPublic = useAxiosPublic();
@@ -67,7 +67,7 @@ const UpdateItem = () => {
             </label>
             <input
               type="text"
-              defaultValue={name}
+              // defaultValue={name}
               placeholder="Receipe name"
               {...register("name", { required: true })}
               className="input input-bordered w-full"
@@ -80,7 +80,7 @@ const UpdateItem = () => {
                 <span className="label-text">Category*</span>
               </label>
               <select
-                defaultValue={category}
+                // defaultValue={category}
                 {...register("category", { required: true })}
                 className="select select-bordered w-full"
               >
@@ -102,7 +102,7 @@ const UpdateItem = () => {
               </label>
               <input
                 type="number"
-                defaultValue={price}
+                // defaultValue={price}
                 placeholder="Price"
                 {...register("price", { required: true })}
                 className="input input-bordered w-full"
@@ -115,7 +115,7 @@ const UpdateItem = () => {
               <span className="label-text">Recipe Details</span>
             </label>
             <textarea
-            defaultValue={recipe}
+            // defaultValue={recipe}
               {...register("recipe", { required: true })}
               className="textarea textarea-bordered h-24"
               placeholder="Bio"

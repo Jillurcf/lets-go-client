@@ -18,5 +18,4 @@ const useCratorContests = () =>{
     return [contests, loading, refetch]
 
 }
-
 export default useCratorContests;
