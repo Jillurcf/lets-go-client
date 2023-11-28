@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { FaTrashAlt, FaUsers } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const ManageUsers = () => {
@@ -14,7 +14,7 @@ const ManageUsers = () => {
   });
 
   const handleMakeAdmin = user =>{
-    axiosSecure.patch(`/users/admin/${user._id}`)
+    axiosSecure.put(`/users/creator/${user._id}`)
     .then(res=>{
         console.log(res.data);
         if(res.data.modifiedCount > 0){
@@ -84,12 +84,14 @@ const ManageUsers = () => {
                 <td>{user.email}t</td>
                 <td>
                {user.role === 'admin' ? 'Admin' : 
+                 
                  <button
                  onClick={() => handleMakeAdmin(user)}
                  className="btn btn-lg bg-orange-500"
                >
-                 <FaUsers className="text-white text-2xl "></FaUsers>
+                {user.role}
                </button>
+               
                }
                 </td>
                 <td>
@@ -110,3 +112,9 @@ const ManageUsers = () => {
 };
 
 export default ManageUsers;
+
+
+
+
+       
+

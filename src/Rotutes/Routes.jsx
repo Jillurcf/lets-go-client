@@ -23,6 +23,7 @@ import AddContest from "../Pages/DashBoard/AddContest/AddContest";
 import CreatedContest from "../Pages/DashBoard/CreatedContest/CreatedContest";
 import UpdateContest from "../Pages/DashBoard/UpdateContest/UpdateContest";
 import UserProfile from "../Pages/DashBoard/UserProfile/UserProfile";
+import MywinningContestPage from "../Pages/DashBoard/MywinningContestPage/MywinningContestPage";
 
 
 
@@ -84,6 +85,10 @@ export const router = createBrowserRouter([
       {
         path: 'payment',
         element: <Payment></Payment>
+      },
+      {
+        path: 'userWinning',
+        element: <MywinningContestPage></MywinningContestPage>
       },
       {
         path: 'createdContest',
