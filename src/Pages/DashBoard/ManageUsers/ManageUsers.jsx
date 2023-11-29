@@ -16,9 +16,10 @@ const ManageUsers = () => {
   const handleMakeAdmin = user =>{
     axiosSecure.put(`/users/creator/${user._id}`)
     .then(res=>{
+      refetch();
         console.log(res.data);
         if(res.data.modifiedCount > 0){
-            refetch();
+           
             Swal.fire({
                 position: "top-end",
                 icon: "success",

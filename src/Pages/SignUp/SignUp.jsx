@@ -32,7 +32,7 @@ const SignUp = () => {
             status: "Verified",
           };
           axiosPublic.post("/Users", userInfo).then((res) => {
-            if (res.data.insertedId) {
+            if (res.data) {
               reset();
               Swal.fire({
                 position: "top-end",

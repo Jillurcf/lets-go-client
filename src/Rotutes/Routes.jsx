@@ -6,17 +6,13 @@ import SignUp from "../Pages/SignUp/SignUp";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import SeeDetails from "../Pages/SeeDetails/SeeDetails";
 import AllContestPage from "../Pages/AllContestPage/AllContestPage";
-// import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import UserHome from "../Pages/DashBoard/UserHome/UserHome";
 import Cart from "../Pages/DashBoard/Cart/Cart";
 import Payment from "../Pages/DashBoard/Payment/Payment";
-import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
 import AdminRoute from "./AdminRoute";
-import UpdateItem from "../Pages/DashBoard/UpdateItem/UpdateItem";
-import AllUsers from "../Pages/DashBoard/ManageUsers/ManageUsers";
-
 import ManageContests from "../Pages/DashBoard/ManageContests/ManageContests";
 import ManageUsers from "../Pages/DashBoard/ManageUsers/ManageUsers";
 import AddContest from "../Pages/DashBoard/AddContest/AddContest";
@@ -24,8 +20,6 @@ import CreatedContest from "../Pages/DashBoard/CreatedContest/CreatedContest";
 import UpdateContest from "../Pages/DashBoard/UpdateContest/UpdateContest";
 import UserProfile from "../Pages/DashBoard/UserProfile/UserProfile";
 import MywinningContestPage from "../Pages/DashBoard/MywinningContestPage/MywinningContestPage";
-
-
 
 export const router = createBrowserRouter([
   {
@@ -43,60 +37,61 @@ export const router = createBrowserRouter([
       },
       {
         path: "signUp",
-        element: <SignUp></SignUp>
+        element: <SignUp></SignUp>,
       },
       {
-        path: 'seeDetail/:id',
+        path: "seeDetail/:id",
         element: <SeeDetails></SeeDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/Contests/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`https://assignment12-server-seven.vercel.app/Contests/${params.id}`),
       },
       {
-        path: 'allContest',
-        element: <AllContestPage></AllContestPage>
-      }
-  // //     {
-  // //       path: "secret",
-  // //       element: (
-  // //         <PrivateRoute>
-  // //           <Secret></Secret>
-  // //         </PrivateRoute>
-  // //       ),
-  // //     },
+        path: "allContest",
+        element: <AllContestPage></AllContestPage>,
+      },
+      // //     {
+      // //       path: "secret",
+      // //       element: (
+      // //         <PrivateRoute>
+      // //           <Secret></Secret>
+      // //         </PrivateRoute>
+      // //       ),
+      // //     },
     ],
   },
   {
     path: "/dashboard",
     element: (
-      // <PrivateRoute>
-        <Dashboard></Dashboard>
-      // </PrivateRoute>
+      <PrivateRoute>
+      <Dashboard></Dashboard>
+      </PrivateRoute>
     ),
-  
+
     children: [
       // normal users routes
       {
-        path: 'userHome',
-        element: <UserHome></UserHome>
+        path: "userHome",
+        element: <UserHome></UserHome>,
       },
       {
         path: "cart",
         element: <Cart></Cart>,
       },
       {
-        path: 'payment',
-        element: <Payment></Payment>
+        path: "payment",
+        element: <Payment></Payment>,
       },
       {
-        path: 'userWinning',
-        element: <MywinningContestPage></MywinningContestPage>
+        path: "userWinning",
+        element: <MywinningContestPage></MywinningContestPage>,
       },
       {
-        path: 'createdContest',
+        path: "createdContest",
         element: <CreatedContest></CreatedContest>,
       },
       {
-        path: 'updateContest',
-        element: <UpdateContest></UpdateContest>
+        path: "updateContest",
+        element: <UpdateContest></UpdateContest>,
       },
       // {
       //   path: 'paymentHistory',
@@ -104,27 +99,30 @@ export const router = createBrowserRouter([
       // },
       // // admin only routes
       {
-        path: 'adminHome',
-        element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
+        path: "adminHome",
+        element: (
+          <AdminRoute>
+            <AdminHome></AdminHome>
+          </AdminRoute>
+        ),
       },
       {
         path: "addContest",
-        element: (
-         <AddContest></AddContest>                     
-        ),
+        element: <AddContest></AddContest>,
       },
       {
         path: "manageContests",
         element: (
           <AdminRoute>
-           <ManageContests></ManageContests>
+            <ManageContests></ManageContests>
           </AdminRoute>
         ),
       },
       {
         path: "UpdateContest/:id",
         element: <UpdateContest></UpdateContest>,
-       loader: ({params}) => fetch(`http://localhost:5000/Contests/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`https://assignment12-server-seven.vercel.app/Contests/${params.id}`),
       },
       {
         path: "mangeUsers",
@@ -136,9 +134,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "userProfile",
-        element: (    
-            <UserProfile></UserProfile>         
-        ),
+        element: <UserProfile></UserProfile>,
       },
     ],
   },
