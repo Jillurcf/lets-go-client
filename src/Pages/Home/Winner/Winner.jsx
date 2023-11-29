@@ -1,32 +1,15 @@
-import { useQuery } from "@tanstack/react-query";
+
 import Sectiontitle from "../../../Component/SectionTitle/Sectiontitle";
-// import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import img1 from "../../../assets/Images/winner1.jpg";
 import winnerImg from '../../../assets/Images/winnersimg.jpg'
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-// import useCratorContests from "../../../Hooks/useCreatrorContest";
+
+
 
 
 
 const Winner = () => {
-  // const creator = useCratorContests()
-  // console.log("line 13", creator);
-  const axiosPublic = useAxiosPublic()
-  const axiosSecure = useAxiosSecure();
-  const { data: user = [], refetch } = useQuery({
-    queryKey: ["users"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/users");
-      return res.data;
-    },
-  });
 
-console.log(user[0]?.role);
-  axiosPublic.get(`/users/${user[0]?.role}`)
-  .then(res=> {
-    console.log(res.data);
-  })
+ 
   return (
     <div>
       <Sectiontitle

@@ -17,4 +17,5 @@ const useContests = () =>{
     return [contests, loading, refetch]
 
 }
+
 export default useContests;

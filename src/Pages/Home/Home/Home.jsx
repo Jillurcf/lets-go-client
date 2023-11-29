@@ -13,6 +13,7 @@ const Home = () => {
           <PopularContest></PopularContest>
           <Winner></Winner>
           <CreatorSlider></CreatorSlider>
+          {/* <Order></Order> */}
         </div>
     );
 };

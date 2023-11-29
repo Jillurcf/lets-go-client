@@ -3,8 +3,8 @@ import { FaFacebook, FaLinkedinIn, FaTwitter, FaYoutube } from "react-icons/fa";
 const TopNavBar = () => {
   const navLinks = <>
    <li><Link className="text-purple-300 font-bold hover:bg-purple-950">Deep Dive</Link></li>
-   <li><Link className="text-purple-300 font-bold hover:bg-purple-950">News & Insights </Link></li>
-   <li><Link className="text-purple-300 font-bold hover:bg-purple-950">Gallery  </Link></li>
+   <li><Link to='/news ' className="text-purple-300 font-bold hover:bg-purple-950">News & Insights </Link></li>
+   <li><Link to='/gallery' className="text-purple-300 font-bold hover:bg-purple-950">Gallery  </Link></li>
 
   </>
     return (

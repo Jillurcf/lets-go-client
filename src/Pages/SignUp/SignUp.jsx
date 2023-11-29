@@ -19,18 +19,22 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
+
+    const userInfo = {
+      name: data.name,
+      image: data.image,
+      email: data.email,
+      role: "guest",
+      status: "Verified",
+    };
+
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
           //  create user entry in the database
-          const userInfo = {
-            name: data.name,
-            email: data.email,
-            role: "guest",
-            status: "Verified",
-          };
+          
           axiosPublic.post("/Users", userInfo).then((res) => {
             if (res.data) {
               reset();
@@ -87,8 +91,8 @@ const SignUp = () => {
                 </label>
                 <input
                   type="text"
-                  name="name"
-                  {...register("photoURL", { required: true })}
+                  name="image"
+                  {...register("image", { required: true })}
                   placeholder="Photo URL"
                   className="input input-bordered"
                 />

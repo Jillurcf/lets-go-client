@@ -27,7 +27,7 @@ const SeeDetails = () => {
 
   let interval;
   const startTimer = () => {
-    const countDownDate = new Date("november 27, 2023").getTime();
+    const countDownDate = new Date("january 27, 2024").getTime();
 
     interval = setInterval(() => {
       const now = new Date().getTime();

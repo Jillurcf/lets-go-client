@@ -20,6 +20,8 @@ import CreatedContest from "../Pages/DashBoard/CreatedContest/CreatedContest";
 import UpdateContest from "../Pages/DashBoard/UpdateContest/UpdateContest";
 import UserProfile from "../Pages/DashBoard/UserProfile/UserProfile";
 import MywinningContestPage from "../Pages/DashBoard/MywinningContestPage/MywinningContestPage";
+import Gallery from "../Pages/Gallery/Gallery";
+import NewsAndInsight from "../Pages/NewsAndInsight/NewsAndInsight";
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +50,14 @@ export const router = createBrowserRouter([
       {
         path: "allContest",
         element: <AllContestPage></AllContestPage>,
+      },
+      {
+        path: "gallery",
+        element: <Gallery></Gallery>,
+      },
+      {
+        path: "news",
+        element: <NewsAndInsight></NewsAndInsight>,
       },
       // //     {
       // //       path: "secret",

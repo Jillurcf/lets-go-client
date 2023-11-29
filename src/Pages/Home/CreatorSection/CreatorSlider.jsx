@@ -20,14 +20,49 @@ import "swiper/css/effect-cards";
 // import required modules
 import { EffectCards } from "swiper/modules";
 import img1 from "../../../assets/Images/winner1.jpg";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const CreatorSlider = () => {
+  const [getCreator, setGetCreator] = useState([]);
+console.log(getCreator);
+  const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure();
+  const { data: user = [], } = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/users");
+      return res.data;
+    },
+  });
+
+console.log(user[0]?.role);
+ useEffect(() => {
+  axiosPublic.get(`/users/${user[0]?.role}`)
+  .then(res=> {
+    console.log(res.data);
+    setGetCreator(res.data)
+  })
+ 
+  
+ }, [])
+
+
+
+
   return (
     <div>
       <Sectiontitle
         heading="Our best Contest Creators"
         subHeading="Ouer honor to the best contest creators"
       ></Sectiontitle>
+        <div className="my-12 max-w-screen-lg mx-auto">
+        <h1 className="text-center text-3xl text-purple-600 font-bold">Unleash Your Creativity! <br /> Enter our Exclusive Contest Today!</h1>
+        <p className="text-center text-purple-400">As contest creators, we've envisioned a theme that sparks curiosity, ignites passion, and beckons you to explore the depths of your imagination. This contest is your canvas, and we encourage you to be bold, daring, and unabashedly original.</p>
+      </div>
       {/* <Swiper
 
         effect={'coverflow'}
@@ -70,58 +105,28 @@ const CreatorSlider = () => {
           <h1>contest Name</h1>
           <h1>Descriptions</h1>
         </SwiperSlide> */}
-        <SwiperSlide>
+     {
+      getCreator.map(creator=> 
+        <SwiperSlide key={creator._id}>
         <div className="card card-side bg-purple-200 shadow-xl">
           <figure>
             <img
-              src={img1}
+              src={creator.image}
               alt="Movie"
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">New movie is released!</h2>
-            <p>Click the button to watch on Jetflix app.</p>
+            <h2 className="card-title">Name: {creator.name}</h2>
+            <p>Role: {creator.role}</p>
+            <p>Inovation is my heart</p>
             {/* <div className="card-actions justify-end">
               <button className="btn btn-primary">Watch</button>
             </div> */}
           </div>
         </div>
         </SwiperSlide>
-        <SwiperSlide>
-        <div className="card card-side bg-purple-200 shadow-xl">
-          <figure>
-            <img
-              src={img1}
-              alt="Movie"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">New movie is released!</h2>
-            <p>Click the button to watch on Jetflix app.</p>
-            {/* <div className="card-actions justify-end">
-              <button className="btn btn-primary">Watch</button>
-            </div> */}
-          </div>
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className="card card-side bg-purple-200 shadow-xl">
-          <figure>
-            <img
-              src={img1}
-              alt="Movie"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">New movie is released!</h2>
-            <p>Click the button to watch on Jetflix app.</p>
-            {/* <div className="card-actions justify-end">
-              <button className="btn btn-primary">Watch</button>
-            </div> */}
-          </div>
-        </div>
-        </SwiperSlide>
-       
+        )
+     }               
       </Swiper>
     </div>
   );
