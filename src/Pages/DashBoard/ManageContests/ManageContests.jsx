@@ -4,11 +4,13 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { Link,} from "react-router-dom";
 import useContests from "../../../Hooks/UseContests";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const ManageContests = () => {
   const [contests, loading, refetch] = useContests();
   console.log(contests);
   const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic()
   // const {id} = useParams()
 
   const handleDeleteItem = (item) => {
@@ -44,6 +46,27 @@ const ManageContests = () => {
       }
     });
   };
+
+ 
+  
+  const handleApprove = item =>{
+    console.log(item._id);
+    axiosPublic.put(`/contests/approve/${item._id}`)
+    .then(res=>{
+     
+        console.log(res.data);
+        if(res.data){
+          refetch();
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: `${item.statu} is an approved now!`,
+                showConfirmButton: false,
+                timer: 1500
+              });
+        }
+    })
+  }
   return (
     <div>
       <Sectiontitle
@@ -60,6 +83,7 @@ const ManageContests = () => {
                 <th>Image</th>
                 <th>Item Name</th>
                 <th>Price</th>
+                <th>Status</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>
@@ -80,8 +104,20 @@ const ManageContests = () => {
                       </div>
                     </div>
                   </td>
-                  <td>{item.name}</td>
-                  <td className="text-right">$ {item.price}</td>
+                  <td>{item.contestName}</td>
+                  <td className="text-right">${item.price}</td>
+                  <td>
+                  {
+                  item.statu === 'Pending' ? 'pending' :                 
+                 <button
+                 onClick={() => handleApprove(item)}
+                 className="btn btn-lg bg-orange-500"
+               >
+                {item.statu}
+               </button>
+               
+               }
+               </td>
                   <td>
                     <Link to={`/dashboard/UpdateContest/${item._id}`}>
                       <button className="btn btn-ghost btn-lg bg-orange-500">

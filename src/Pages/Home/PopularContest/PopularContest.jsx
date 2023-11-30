@@ -9,8 +9,7 @@ const PopularContest = () => {
   const axiosPublic = useAxiosPublic();
   const Contests = useContests();
   console.log(Contests);
-  const [allContests, setAllContests] = useState(Contests);
-
+  const [allContests, setAllContests] = useState(Contests[0]);
   console.log(allContests);
   const [isShow, setIsShow] = useState(false);
   console.log(allContests);
@@ -23,9 +22,9 @@ const PopularContest = () => {
     const searchByTags = {
       search,
     };
-    axiosPublic.get(`/contests?.[0]?.tags=${search}`).then((res) => {
-      console.log(res.data);
+    axiosPublic.get(`/contests?tags=${search}`).then((res) => {
       setAllContests(res.data);
+      console.log(res.data);
     });
   };
   return (
@@ -52,13 +51,13 @@ const PopularContest = () => {
 
       <div className=" grid md:grid-cols-2 grid-cols-1 gap-8">
         {isShow
-          ? Contests[0].map((contest) => (
+          ? allContests.map((contest) => (
               <PopularContestCard
                 key={contest._id}
                 contest={contest}
               ></PopularContestCard>
             ))
-          : Contests[0]
+          : allContests
               .slice(0, 6)
               .map((contest) => (
                 <PopularContestCard

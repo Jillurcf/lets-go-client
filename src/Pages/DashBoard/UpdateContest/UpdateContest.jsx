@@ -19,6 +19,7 @@ const UpdateContest = () => {
   const { register, handleSubmit, reset } = useForm();
   const axiosPublic = useAxiosPublic();
   const axoiosSecure = useAxiosSecure();
+
   const onSubmit = async (data) => {
     console.log(data);
     // image upload to imgbb and then get an url
@@ -29,7 +30,7 @@ const UpdateContest = () => {
       },
     });
     if (res.data) {
-      // now send the menu item data to the server with the image url
+      
       const contestItem = {
         name: data.name,
         email: user?.email,
@@ -41,7 +42,8 @@ const UpdateContest = () => {
         participants: 0,
         image: res.data.data.display_url,
       };
-      const contestRes = await axoiosSecure.post("/contests", contestItem);
+    
+      const contestRes = await axoiosSecure.put(`/contests/${updateData._id}`, contestItem);
       console.log(contestRes.data);
       if (contestRes.data) {
         // show success popup
@@ -49,7 +51,7 @@ const UpdateContest = () => {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: `${data.name} is added to the contest`,
+          title: `${data.name} is updated to the contest`,
           showConfirmButton: false,
           timer: 1500,
         });
@@ -73,7 +75,7 @@ const UpdateContest = () => {
             </label>
             <input
               type="text"
-              defaultValue={updateData.name}
+              defaultValue={updateData.contestName}
               placeholder="Contest Name"
               {...register("name", { required: true })}
               className="input input-bordered w-full"
@@ -123,7 +125,7 @@ const UpdateContest = () => {
               </label>
               <input
                 type="number"
-                defaultValue={updateData.contestPrice}
+                defaultValue={updateData.price}
                 placeholder="Price"
                 {...register("price", { required: true })}
                 className="input input-bordered w-full"
@@ -159,8 +161,7 @@ const UpdateContest = () => {
 
           <div className="form-control w-full">
             <input
-            
-              {...register("image", { required: true })}
+              {...register("image")}
               type="file"
               
               className="file-input w-full max-w-xs"
@@ -168,7 +169,7 @@ const UpdateContest = () => {
           </div>
 
           <button className=" mt-4 btn">
-            Add Contest
+           Update Contest
            <FaTrophy></FaTrophy>
           </button>
         </form>

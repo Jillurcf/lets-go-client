@@ -82,7 +82,7 @@ const CreatedContest = () => {
                     </div>
                   </td>
                   <td>{item.name}</td>
-                  <td className="text-right">$ {item.price}</td>
+                  <td className="text-right">$ {item.contestPrice}</td>
                   <td>
                     <Link to={`/dashboard/UpdateContest/${item._id}`}>
                       <button className="btn btn-ghost btn-lg bg-orange-500">

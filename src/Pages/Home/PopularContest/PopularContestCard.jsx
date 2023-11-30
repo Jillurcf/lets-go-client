@@ -45,7 +45,7 @@ const PopularContestCard = ({contest}) => {
         </div>
         {/* <p> */}
         {
-            description.length > 100 ? <p className="lg:block hidden text-purple-300">{description.slice(0,100)}<Link className="text-yellow-400 underline">  Read more..</Link></p> : <p className="lg:block hidden text-purple-300">{description}</p>
+            description?.length > 100 ? <p className="lg:block hidden text-purple-300">{description.slice(0,100)}<Link className="text-yellow-400 underline">  Read more..</Link></p> : <p className="lg:block hidden text-purple-300">{description}</p>
           }
         {/* </p> */}
           <div className="">

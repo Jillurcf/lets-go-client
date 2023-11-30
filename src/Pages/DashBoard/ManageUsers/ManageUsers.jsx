@@ -82,7 +82,7 @@ const ManageUsers = () => {
               <tr key={user._id}>
                 <th>{index + 1}</th>
                 <td>{user.name}</td>
-                <td>{user.email}t</td>
+                <td>{user.email}</td>
                 <td>
                {user.role === 'admin' ? 'Admin' : 
                  
