@@ -29,7 +29,7 @@ const PopularContest = () => {
   };
   return (
     <div>
-      <div className="-mt-24 flex justify-center">
+      <div className="-mt-14 flex justify-center">
         <form onSubmit={handleSearch} className="join mb-80">
           <input
             type="text"

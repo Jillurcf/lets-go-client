@@ -34,7 +34,7 @@ const Banner = () => {
 
       </div>
 
-      <Marquee className=" mt-96 max-w-6xl">
+      <Marquee className=" mt-60 max-w-6xl">
         <div className="w-[200px] mr-12 border p-2">
           <img src={img1} alt="" />
           <h1 className="text-center text-purple-300">Busines Contest</h1>
