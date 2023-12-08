@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const PopularContestCard = ({contest}) => {
     const {_id, image, contestName, tags, description, participants} = contest;
+ console.log(contest);
     const axiosPublic = useAxiosPublic()
     const [presentCount, setPresentCount] = useState(0)
       

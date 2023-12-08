@@ -1,16 +1,26 @@
-import useContests from "../../../Hooks/UseContests";
+// import useContests from "../../../Hooks/UseContests";
 import Sectiontitle from "../../../Component/SectionTitle/Sectiontitle";
 import PopularContestCard from "./popularContestCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const PopularContest = () => {
-  const axiosPublic = useAxiosPublic();
-  const Contests = useContests();
-  console.log(Contests);
-  const [allContests, setAllContests] = useState(Contests[0]);
+  const [allContests, setAllContests] = useState([]);
   console.log(allContests);
+  useEffect(() => {
+    axiosPublic.get(`/contests`).then((res) => {
+      setAllContests(res.data);
+      console.log(res.data);
+    });
+  
+   
+  }, [])
+  
+  const axiosPublic = useAxiosPublic();
+  // const Contests = useContests();
+  // console.log(Contests);
+  
   const [isShow, setIsShow] = useState(false);
   console.log(allContests);
 
@@ -29,7 +39,7 @@ const PopularContest = () => {
   };
   return (
     <div>
-      <div className="-mt-14 flex justify-center">
+      <div className="-mt-14 flex justify-center px-6">
         <form onSubmit={handleSearch} className="join mb-80">
           <input
             type="text"

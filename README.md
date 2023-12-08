@@ -1,8 +1,15 @@
-# React + Vite
+# Project Features
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- This is Contest management project
+- User can see, attend and observe their activities on the user dashboard
+- Admin can see, approve, update and delete contests and also admin can make one as a contest creator who can create contest.
+- This is completely react base project and use here Tailwind css with daisy ui. 
+- I used TansTack Quer for state management
+- Used stripe for pament method.
+- Used axios
+- Used firebase authentication and json web token
 
-Currently, two official plugins are available:
+Thank you
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+project live link: https://assignment12-473b3.web.app
