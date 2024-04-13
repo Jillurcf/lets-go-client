@@ -4,17 +4,34 @@ import { motion } from "framer-motion";
 import logo from "../../../assets/Images/a12logo.png";
 import { FaCartShopping } from "react-icons/fa6";
 import useCart from "../../../Hooks/useCart";
+import { useEffect, useState } from "react";
 
 
 const NavBar = () => {
+ const [stickyClass, setStickyClass] = useState('relative');
   const { user, logOut } = useAuth();
   const [cart] = useCart()
+  useEffect(()=> {
+    window.addEventListener('scroll', stickNavbar);
+    return () => {
+      window.removeEventListener('scroll', stickNavbar)
+    }
+
+  },[]);
+
+  const stickNavbar = () => {
+    if (window !== undefined) {
+      let windowHeight = window.scrollY;
+      windowHeight > 500 ? setStickyClass('fixed top-0 left-0 z-50') : setStickyClass('relative')
+    }
+  }
+
   const navLinks = (
     <>
-      <li>
-        <NavLink
+      <li className="pr-4">
+        <NavLink 
           to="/"
-          className={({ isActive, isPending }) =>
+          className={({ isActive, isPending, }) =>
             isPending
               ? "pending"
               : isActive
@@ -22,7 +39,9 @@ const NavBar = () => {
               : "text-purple-700 font-bold"
           }
         >
-          Home
+          <div className="">
+            Home
+          </div>
         </NavLink>
       </li>
       <li>
@@ -42,18 +61,20 @@ const NavBar = () => {
       <li>
         <NavLink
           to="dashboard/cart"
-          // className={({ isActive, isPending }) =>
-          //   isPending
-          //     ? "pending"
-          //     : isActive
-          //     ? "bg-purple-300 text-purple-950 font-bold"
-          //     : "text-purple-700 font-bold"
-          // }
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "bg-purple-300 text-purple-950 font-bold"
+              : "text-purple-700 font-bold"
+          }
         >
           {/* My Registration */}
-          <button className="btn">
-          <FaCartShopping></FaCartShopping>
-            <div className="badge badge-secondary">+{cart.length}</div>
+          <button className="">
+          <div className="flex gap-1">
+          <FaCartShopping className="text-xl"></FaCartShopping>
+            <div className="badge badge-secondary"><Link to="/signin">+{cart.length} </Link></div>
+          </div>
           </button>
         </NavLink>
       </li>
@@ -66,7 +87,9 @@ const NavBar = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="navbar h-24 max-w-screen-xl w-full fixed z-10 bg-purple-50 opacity-80">
+    <>
+     <div className={`w-full flex justify-center ${stickyClass}`}>
+    <div className="navbar h-24 fixed max-w-screen-xl z-50 bg-purple-50 opacity-80">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -155,6 +178,8 @@ const NavBar = () => {
         )}
       </div>
     </div>
+    </div>
+    </>
   );
 };
 

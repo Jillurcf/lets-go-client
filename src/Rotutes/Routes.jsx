@@ -34,14 +34,6 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "signin",
-        element: <Login></Login>,
-      },
-      {
-        path: "signUp",
-        element: <SignUp></SignUp>,
-      },
-      {
         path: "seeDetail/:id",
         element: <SeeDetails></SeeDetails>,
         loader: ({ params }) =>
@@ -147,5 +139,17 @@ export const router = createBrowserRouter([
         element: <UserProfile></UserProfile>,
       },
     ],
+    
+
   },
+  
+    {
+      path: "signin",
+      element: <Login></Login>,
+    },
+    {
+      path: "signUp",
+      element: <SignUp></SignUp>,
+    },
+  
 ]);

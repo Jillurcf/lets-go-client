@@ -20,7 +20,7 @@ const Banner = () => {
       <div className="hero-overlay bg-opacity-80"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">
-          <h1 className="-mt-48 text-5xl font-bold text-purple-200">
+          <h1 className="-mt-48 text-9xl font-bold text-purple-200">
             Welcome to ContestHub
           </h1>
           <p className="mb-8">
