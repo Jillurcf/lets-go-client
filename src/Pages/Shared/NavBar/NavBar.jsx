@@ -22,7 +22,7 @@ const NavBar = () => {
   const stickNavbar = () => {
     if (window !== undefined) {
       let windowHeight = window.scrollY;
-      windowHeight > 500 ? setStickyClass('fixed top-0 left-0 z-50') : setStickyClass('relative')
+      windowHeight > 100 ? setStickyClass('fixed top-0 left-0 z-50') : setStickyClass('relative')
     }
   }
 
@@ -58,26 +58,50 @@ const NavBar = () => {
           All Contest
         </NavLink>
       </li>
+     <Link>
       <li>
-        <NavLink
+        { user ? 
+          <NavLink
           to="dashboard/cart"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
               : isActive
-              ? "bg-purple-300 text-purple-950 font-bold"
+              ? " text-purple-950 font-bold"
               : "text-purple-700 font-bold"
           }
         >
           {/* My Registration */}
           <button className="">
-          <div className="flex gap-1">
+        <div className="flex gap-1"> 
           <FaCartShopping className="text-xl"></FaCartShopping>
-            <div className="badge badge-secondary"><Link to="/signin">+{cart.length} </Link></div>
+            <div className="badge badge-secondary">+{cart.length}</div>
           </div>
           </button>
         </NavLink>
+         : <Link t0="/singin">
+        <NavLink
+        to="/signin"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? "pending"
+            : isActive
+            ? "bg-purple-300 text-purple-950 font-bold"
+            : "text-purple-700 font-bold"
+        }
+      >
+        {/* My Registration */}
+        <div className="">
+      <div className="flex gap-1"> 
+        <FaCartShopping className="text-xl"></FaCartShopping>
+          <div className="badge badge-secondary">+{cart.length}</div>
+        </div>
+        </div>
+      </NavLink>
+      </Link>
+        }
       </li>
+     </Link>
     </>
   );
 
@@ -110,7 +134,7 @@ const NavBar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 "
           >
             {navLinks}
           </ul>

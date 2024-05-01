@@ -22,37 +22,43 @@ const PopularContest = () => {
   // console.log(Contests);
   
   const [isShow, setIsShow] = useState(false);
-  console.log(allContests);
+  
+  
+  
 
   const handleSearch = (e) => {
     e.preventDefault();
     const form = e.target;
     const search = form.search.value;
     console.log(search);
-    const searchByTags = {
-      search,
-    };
+    // const searchByTags = {
+    //   search,
+    // };
     axiosPublic.get(`/contests?tags=${search}`).then((res) => {
       setAllContests(res.data);
       console.log(res.data);
     });
   };
+
+
   return (
     <div>
-      <div className="-mt-14 flex justify-center px-6">
+      <div className="-mt-48 flex justify-center px-6">
         <form onSubmit={handleSearch} className="join mb-80">
           <input
             type="text"
             name="search"
             className="input input-bordered join-item"
             placeholder="Search by contest TAGS"
+            z  
           />
           <button className="btn bg-purple-950 text-purple-50 join-item rounded-r-full">
             Search
           </button>
         </form>
+       
       </div>
-
+    
   <div className="-mt-48">
   <Sectiontitle 
         heading="Popular Contest"
